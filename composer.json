@@ -1,0 +1,16 @@
+{
+    "name": "guilh/ajax-com-php",
+    "autoload": {
+        "psr-4": {
+            "Guilh\\AjaxComPhp\\": "src/",
+            "app\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "PortadordeCNPJ",
+            "email": "guilhermedesouzamuller@gmail.com"
+        }
+    ],
+    "require": {}
+}
