@@ -1,4 +1,4 @@
-<?php
+<?php 
 
 namespace app\models;
 
@@ -13,7 +13,7 @@ abstract class Model
 
     public function all()
     {
-        $sql = "select * from {this->table}";
+        $sql = "select * from {$this->table}";
 
         $all = $this->connection->prepare($sql);
 

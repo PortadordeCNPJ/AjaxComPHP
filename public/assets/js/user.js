@@ -1,6 +1,8 @@
 window.onload = function(){
 
     var btn_users = document.querySelector("#btn-users");
+    
+    var div_users = document.querySelector("#div-users");
 
     //O objeto que é preciso usar para utilizar o AJAX com javascript puro
     var xhttp = new XMLHttpRequest();
