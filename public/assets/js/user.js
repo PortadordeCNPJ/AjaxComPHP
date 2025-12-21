@@ -1,28 +1,43 @@
-window.onload = function(){
+window.onload = function () {
 
     var btn_users = document.querySelector("#btn-users");
-    
+
     var div_users = document.querySelector("#div-users");
 
-    //O objeto que é preciso usar para utilizar o AJAX com javascript puro
-    var xhttp = new XMLHttpRequest();
+    btn_users.onclick = function () {
+        XMLHttpGet('ajax/user', function () {
 
-    btn_users.onclick = function(){
+            //Será passo o callback, que é uma função que passa parametros para outra função
+            beforeSend(function () {
 
-        //Função que verifica os status da operação e determina se esta tudo correto. Determinando o status com base nas verificações
-        xhttp.onreadystatechange = function(){
+                div_users.innerHTML = `<i class="fa-solid fa-arrows-spin fa-spin"></i><span class="sr-only">Loanding...</span>`
 
-            if(this.readyState == 4 && this.status == 200){
-                console.log(this.responseText);
-            }
-        }
+            });
 
-        //Método open(GET or POST or PUT or DELETE) abre uma requisição http
-        xhttp.open('GET', 'ajax/user.php', true);
+            sucess(function () {
 
-        //Método de envio
-        xhttp.send();
+                var users = JSON.parse(xhttp.responseText);
+
+                var table = `<table class='table table-striped'>`;
+                table += `<thead><tr><td>ID</td><td>Nome</td><td>ID</td>Email</tr></thead>`;
+                table += `<tbody>`;
+                users.forEach(function (user) {
+
+                    table += `<tr>`;
+                    table += `<td>${user.id}</td>`;
+                    table += `<td>${user.name}</td>`;
+                    table += `<td>${user.email}</td>`;
+                    table += `</tr>`;
+                });
+
+                table += `</tbody>`;
+                table += `</table>`;
+
+                div_users.innerHTML = table;
+            });
+
+        });
+
     }
-
 
 }

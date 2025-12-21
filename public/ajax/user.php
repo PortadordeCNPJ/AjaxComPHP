@@ -4,8 +4,8 @@ require "../../config.php";
 
 use app\models\User;
 
+sleep(2);
+
 $user = new User;
 
-var_dump($user->all());
-
-echo 'teste de dentro do user';
+echo json_encode($user->all());
