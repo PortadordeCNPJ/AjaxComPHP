@@ -8,4 +8,6 @@ sleep(2);
 
 $user = new User;
 
-echo json_encode($user->all());
+$id = $_GET['id'];
+
+echo json_encode($user->find('id',$id));
