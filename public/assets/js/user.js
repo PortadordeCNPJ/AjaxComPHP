@@ -4,6 +4,13 @@ window.onload = function () {
 
     var div_users = document.querySelector("#div-users");
 
+    var form_cadastrar = document.querySelector("#form_cadastrar");
+
+
+    form_cadastrar.onsubimit = function(){
+        console.log('cadastrar');
+    }
+
     btn_users.onclick = function () {
         XMLHttpGet('ajax/user', function () {
 
